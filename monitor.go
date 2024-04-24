@@ -15,6 +15,8 @@
 package ebiten
 
 import (
+	"image"
+
 	"github.com/hajimehoshi/ebiten/v2/internal/ui"
 )
 
@@ -25,6 +27,11 @@ type MonitorType ui.Monitor
 // On Windows, this reports "Generic PnP Monitor" for all monitors.
 func (m *MonitorType) Name() string {
 	return (*ui.Monitor)(m).Name()
+}
+
+// Position returns the device relative position
+func (m *MonitorType) Position() image.Rectangle {
+	return (*ui.Monitor)(m).Position()
 }
 
 // DeviceScaleFactor returns the device scale factor of the monitor.

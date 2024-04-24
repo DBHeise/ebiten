@@ -40,6 +40,11 @@ func (m *Monitor) Name() string {
 	return m.name
 }
 
+// Position returns the relative position of this monitor
+func (m *Monitor) Position() image.Rectangle {
+	return m.boundsInGLFWPixels
+}
+
 // DeviceScaleFactor is concurrent-safe as contentScale is immutable.
 func (m *Monitor) DeviceScaleFactor() float64 {
 	return m.contentScale
